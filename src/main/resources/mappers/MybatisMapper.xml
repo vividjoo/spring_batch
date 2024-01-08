@@ -3,7 +3,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.mybatis.repository.MybatisMapper">
-    <select id="mybatisDTO" resultType="com.example.mybatis.dto.MybatisDTO">
-        SELECT * FROM MEMBER_TABLE WHERE seq = #{i}
+    <select id="mybatisDTO" resultType="com.example.mybatis.dto.MybatisDTO" parameterType="String">
+        SELECT * FROM MEMBER_TABLE WHERE mbId = #{id}
     </select>
+
+
+    <select id="searchName" resultType="boolean" parameterType="String">
+        SELECT * FROM MEMBER_TABLE WHERE mbId = #{id}
+    </select>
+
+    <insert id="insertTime" parameterType="HashMap">
+        INSERT INTO times(mbId, register_time) VALUES (#{mbId}, #{register_time})
+    </insert>
+
 </mapper>

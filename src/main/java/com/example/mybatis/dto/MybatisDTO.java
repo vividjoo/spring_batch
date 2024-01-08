@@ -9,4 +9,5 @@ public class MybatisDTO {
     private String mbPw;
     private String address;
     private String mbTell;
+    private String register_time;
 }
