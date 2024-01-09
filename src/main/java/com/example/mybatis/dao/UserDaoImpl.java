@@ -2,33 +2,26 @@ package com.example.mybatis.dao;
 
 import com.example.mybatis.dto.ResultDTO;
 import com.example.mybatis.dto.UserDTO;
+import com.example.mybatis.mapper.UserMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@Slf4j
 public class UserDaoImpl implements UserDao{
 
-    private ResultDTO resultDTO;
-
     @Autowired
-    UserDao userDao;
+    UserMapper userMapper;
 
     @Override
     public List<UserDTO> findAll() {
-        resultDTO = new ResultDTO();
-        List<UserDTO> resultList = userDao.findAll();
-        if(resultList != null){
-            resultDTO.setState(true);
-            resultDTO.setResult(resultList);
-        }else{
-            resultDTO.setState(false);
-        }
-
-
-        return null;
+        log.info("user Imple");
+        return userMapper.findAll();
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.example.mybatis.dto.UserDTO;
 
 import java.util.List;
 
+
 public interface UserDao {
 
     public List<UserDTO> findAll();
